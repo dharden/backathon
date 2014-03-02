@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>whatevs</title>
+    <link rel="stylesheet" type="text/css" href="doge.css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  </head>
+  <body>
+    <div class="fullscreen-cont">
+      <div class="fullscreen-img"></div>
+      <div class="content">
+        <p class="wow">wow</p> 
+      </div>
+    </div>
+    <script>
+
+      var makeWow = function (){
+
+        var wows = $('.wow');
+        wows.each( function( index ) {
+          var divwidth = $(this).width();
+          var divheight = $(this).height();
+
+          // make position sensitive to size and document's width
+          var posx = (Math.random() * ($(document).width() - divwidth)).toFixed();
+          var posy = (Math.random() * ($(document).height() - divheight)).toFixed();
+
+          var colors = ['#ff0000', '#00ff00', '#0000ff'];
+          var randomColor = Math.floor(Math.random()*16777215).toString(16);
+          $(this).css({
+            'position':'absolute',
+            'z-index':'0',
+            'left':posx+'px',
+            'top':posy+'px',
+            'color': randomColor
+          });
+        });
+      }
+
+      makeWow();
+
+    </script>
+  </body>
+</html>
